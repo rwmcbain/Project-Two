@@ -5,8 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./controllers/Users');
+var users = require('./controllers/JournalEntry');
 
 var app = express();
 
@@ -23,7 +23,6 @@ app.use(cookieParser());
 app.use(require('node-sass-middleware')({
   src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
-  indentedSyntax: true,
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -61,6 +60,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
 
 
 module.exports = app;
