@@ -1,2 +1,22 @@
 <h1>{{title}}</h1>
-<p>Tell me about your day</p>
+<p><div id="loginform">
+<form  action="login.php" autocomplete="on"> 
+     <p> 
+          <input id="username" name="username" required="required" type="text" placeholder="Username"/>
+     </p>
+     <p> 
+          <input id="password" name="password" required="required" type="password" placeholder="Password" /> 
+     </p>
+     <p class="keeplogin"> 
+          <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+          <label for="loginkeeping">Keep me logged in</label>
+     </p>
+     <p class="login button"> 
+          <input class="prettybuttons" type="submit" value="Login" /> 
+          <a href ="/form" id="registrationtext">
+          <input class="prettybuttons" id="registration" type="button" value="Register" /> 
+          </a>
+     </p>
+</form>
+</div>
+</p>

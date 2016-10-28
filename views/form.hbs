@@ -1,4 +1,4 @@
-<div id="centerdiv">
+{{!-- <div id="centerdiv">
 <form action="/create" method="post">
   <textarea name='comment' id='comment'></textarea><br />
 
@@ -10,3 +10,33 @@
 </div>
 
 
+ --}}
+
+ <form  action="register.php" autocomplete="on"> 
+    <p> 
+         <label for="firstnamesignup" class="fname" data-icon="u">First Name</label>
+         <input id="firstnamesignup" name="firstnamesignup" required="required" type="text" placeholder="First" />
+    </p>
+    <p> 
+         <label for="lastnamesignup" class="lname" data-icon="u">Last Name</label>
+         <input id="lastnamesignup" name="lastnamesignup" required="required" type="text" placeholder="Last" />
+    </p>
+    <p> 
+         <label for="passwordsignup" class="youpasswd" data-icon="p">Password</label>
+         <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="Password"/>
+    </p>
+    <p> 
+         <label for="emailsignup" class="youmail" data-icon="e" >Email</label>
+         <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="example@domain.com"/> 
+    </p>
+    <p> 
+         
+    </p>
+
+    <p class="signin button"> 
+    <input class='prettybuttons' type="submit" value="Register"/> 
+    <a id="gohomeid" href ="/">
+    <input class='prettybuttons'type="button" value="Go back"/> 
+    </a>
+    </p>
+</form>

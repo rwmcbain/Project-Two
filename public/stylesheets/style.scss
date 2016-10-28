@@ -1,14 +1,13 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #ecf0f1;
+  font-family: 'Raleway', sans-serif;
+  background-color: white;
   text-align: center;
 }
 
 a {
   color: #00B7FF;
 }
-
 
 #comment {
   border-radius: 3px;
@@ -20,4 +19,25 @@ a {
 
 #submitbutton {
 	width: 100%;
+}
+
+#loginform {
+  width: 400px;
+  margin: 0 auto;
+}
+
+#registrationtext {
+  color: black;
+  float: right;
+}
+#gohomeid {
+  color: black;
+  float: center;
+}
+
+.prettybuttons {
+  background-color: #F5F5F5;
+  border-color: #F5F5F5;
+  height: 60px;
+  width: 100px;
 }
