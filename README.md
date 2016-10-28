@@ -5,11 +5,10 @@
 
 Github link: https://github.com/rwmcbain/Project-Two
 
----
 
 ### Summary
 
-* Memorease is a private online journal to log your daily life
+* Memorease is a private online journal to log your daily life. You can log into your account and immediately post a journal entry to your page
 
 ---
 
