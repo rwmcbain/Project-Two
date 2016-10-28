@@ -15,7 +15,7 @@ Github link: https://github.com/rwmcbain/Project-Two
 ### Approach
 
 * We were inspired by wanting to create a private journal that you would have access to online. This would replace
-* a handwritten journal for more privacy. 
+a handwritten journal for more privacy. 
 
 
 ### Technical Requirements
