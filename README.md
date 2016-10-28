@@ -1,6 +1,6 @@
 # Project-Two
 
-# Memoreasy
+# Memorease
 
 
 Github link: https://github.com/rwmcbain/Project-Two
