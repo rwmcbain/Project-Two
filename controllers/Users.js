@@ -5,13 +5,7 @@ var Account = require('../models/user_table');
 var bcrypt = require('bcryptjs');
 var Entry = require('../models/journal_table');
 
-var session = require('express-session');
 
-ctrl.use(session({
-   secret: 'secret',
-   resave: true,
-   saveUninitialized: true
-}));
 
 
 
@@ -36,7 +30,7 @@ function renderEntry(req, res, next){
 };
 
 /* form submission */
-ctrl.post('/journalentry', function(req, res, next) {
+ctrl.post('/entry', function(req, res, next) {
   // <form action="/whereToGo" method="post" autocomplete="on"> 
   //form values
   //<input name="email"> -- 'name' attr binds to req.body
@@ -44,11 +38,6 @@ ctrl.post('/journalentry', function(req, res, next) {
 
 });
 
-
-// ctrl.post('/register', attemptToRegister);
-// ctrl.post('/login', attemptToLogin);
-
-/* create row w/bookshelf */
 
 //delete this 
 function create(req, res, next) {
@@ -95,11 +84,13 @@ function attemptToRegister(req, res, next) {
     first_name: req.body.firstnamesignup,
     last_name: req.body.lastnamesignup
   }).save().then(function(result) {
-    //res.render
-    req.session.account = account;
-    console.log(req.session.account)
-    req.session.save();
-    console.log(result)
+ 
+    req.session.user_id = result.attributes.id;
+
+ 
+    // console.log(req.session.account)
+    console.log(req.session, ' this is req.session in attempt to register')
+    // console.log()
     //res.json(result);
     //res.render()
     res.redirect('/entry');
@@ -142,6 +133,10 @@ function attemptToLogin(req, res, next) {
   // who is our user?
   Account.where('email', req.body.email).fetch().then(
     function(result) {
+    req.session.user_id = result.attributes.id;
+    // console.log(req.session.account)
+
+
       if(result === null){
         res.redirect('/');
       }
@@ -154,7 +149,8 @@ function attemptToLogin(req, res, next) {
       } else {
         res.json('Login in failed');
       }
-    }}
+    }
+  }
   )
 };
 

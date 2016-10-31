@@ -7,9 +7,9 @@ var JournalTable = require('./journal_table');
 var UserAccount = bookshelf.Model.extend({
 	tableName: 'user_accounts',
 
-	// journals: function() {
-	// 	return this.hasMany(JournalTable);
-	// }
+	journals: function() {
+		return this.hasMany(JournalTable);
+	}
 
 });
 

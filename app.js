@@ -7,8 +7,18 @@ var bodyParser = require('body-parser');
 
 var users = require('./controllers/Users');
 var journal = require('./controllers/JournalEntry');
+var session = require('express-session');
+
 
 var app = express();
+
+
+app.use(session({
+   secret: 'secret',
+   resave: true,
+   saveUninitialized: true
+}));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

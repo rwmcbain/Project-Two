@@ -4,7 +4,7 @@
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-               <form action="/journalentry" id="form" method="post">
+               <form action="/entry" id="form" method="post">
                     <input name='comments' id='articleid' />
                     <button type='submit' id="submitbutton" value='Submit' />Submit</button> 
 
@@ -18,16 +18,24 @@
      </div>
      </div>
      </div>
-
- {{#if comments}} 
+{{!-- 
+ {{#if result.comments}} 
  <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-      {{comments}}
+      {{result.comments}}
       </div>
       </div>
       </div>
-     
-     {{/if}}
 
+{{/if}} --}}
 
+{{#each collection}}
+<div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content"> 
+    {{!--  <li>-  --}}{{this}}{{!-- </li> --}}
+     </div>
+      </div>
+      </div>
+{{/each}}

@@ -1,8 +1,8 @@
 var express = require('express');
 var ctrl = express.Router();
 var Entry = require('../models/journal_table');
-var JorunalEntry = require('../models/journal_table');
-
+var JournalEntry = require('../models/journal_table');
+var User = require('../models/user_table')
 
 
 /* GET home page. */
@@ -12,12 +12,11 @@ ctrl.get('/', function(req, res, next) {
 
 
 
-ctrl.post('/journalentry', createEntry);
+ctrl.post('/entry', createEntry);
 
 ctrl.get('/create', create);
 ctrl.get('/id/:id', findById);
 ctrl.get('/all', findAll);
-
 ctrl.get('/entry', renderEntry);
 
 
@@ -26,28 +25,49 @@ function renderEntry(req, res, next){
 };
 
 
-/* create row w/bookshelf */
 function create(req, res, next) {
-  //req.body contain whatever our form sends
   var entry = { comments: 'This is where I write in my journal entry on my wonderful life' };
   var model = new JournalEntry(entry).save().then(function(result) {
     res.json(result);
-    //res.render('template', result.attributes);
   });
 };
 
 function createEntry(req, res, next) {
+
+  console.log(User, ' this is User function')
+
+  JournalEntry.where({id: 1}).fetch({withRelated: ['user']}).then(function(user){
+    console.log(user.related('user_id'))
+    console.log(user, ' this is user in createEntry')
+  })
+
+
+  // console.log(req.session, ' this is req.session is createEntry')
   var entry = new Entry({
     comments: req.body.comments,
-    user_id: req.session.id
+     // comments: req.session.comments,
+    user_id: req.session.user_id
   }).save().then(function(result) {
-    //res.render
-    console.log(result.attributes)
-    res.render('entry', result.attributes); //{{comments}}
-    //res.render()
-    // res.redirect('/entry');
-
-    //req.session
+    //1st db call ends,
+    //2nd db call starts
+    // console.log(result)
+    Entry.collection().fetch().then(function(list) {
+      var viewModel = {
+        result: result.attributes,
+        collection: []
+      }
+      list.forEach(function(model) {
+        // console.log(model.attributes['user_id'] + " " + 'this is user');
+        // console.log(result.attributes['id'] + " " + "this is the attributes id");
+        if (model.attributes['user_id'] == req.session.user_id) {
+          viewModel.collection.unshift(model.attributes['comments']);
+        }
+      })
+      //console.log(viewModel);
+      // console.log('-------')
+      // console.log(viewModel);
+      res.render('entry', viewModel); //{{comments}}
+    });
   });
 
 };

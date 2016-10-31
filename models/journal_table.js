@@ -4,11 +4,10 @@ var UserTable = require('./user_table');
 
 var JournalEntry = bookshelf.Model.extend({
 	tableName: 'journal_entry',
-
-	// user: function() {
- //    return this.belongsTo(UserTable);
- //  }
-
+	idAttribute: 'id',
+	user: function() {
+    	return this.belongsTo(UserTable, 'user_id');
+  	}
 });
 
 

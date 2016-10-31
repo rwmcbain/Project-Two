@@ -11,7 +11,7 @@ create table user_accounts (
 
 create table journal_entry (
 	id int not null auto_increment,
-	timestamp DATETIME,
+	-- timestamp DATETIME,
 	comments text not null,
 	user_id int references user_accounts(id),
 	primary key (id)

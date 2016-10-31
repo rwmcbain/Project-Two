@@ -40,7 +40,7 @@ gulp.task('db_create_user_table', function() {
 gulp.task('db_create_journal_table', function() {
   var sqlString = "create table journal_entry (" +
   "id int not null auto_increment, " +
-  "timestamp DATETIME, " +
+  // "timestamp DATETIME, " +
   "comments text not null, " +
   "user_id int references user_accounts(id), " +
   "primary key (id) " +
