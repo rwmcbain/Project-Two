@@ -1,0 +1,33 @@
+  <div class="col s12 m7">
+    <h2 class="header">Journal Entry</h2>
+
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+               <form action="/journalentry" id="form" method="post">
+                    <input name='comments' id='articleid' />
+                    <button type='submit' id="submitbutton" value='Submit' />Submit</button> 
+
+               </form>
+          <div id="submitdiv">
+          <div class="card-action">
+
+          </div>
+          </div>
+          </div>
+     </div>
+     </div>
+     </div>
+
+ {{#if comments}} 
+ <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+      {{comments}}
+      </div>
+      </div>
+      </div>
+     
+     {{/if}}
+
+

@@ -37,11 +37,12 @@ gulp.task('db_create_user_table', function() {
   db.raw(sqlString).then(cb);
 });
   
-gulp.task('db_create_journal_entry', function() {
+gulp.task('db_create_journal_table', function() {
   var sqlString = "create table journal_entry (" +
   "id int not null auto_increment, " +
   "timestamp DATETIME, " +
   "comments text not null, " +
+  "user_id int references user_accounts(id), " +
   "primary key (id) " +
   ");";
     function cb(res) {
@@ -72,7 +73,7 @@ gulp.task('db_drop_user_accounts', function() {
   db.raw(sqlString).then(cb);
 });
 
-gulp.task('db_drop_journal_entry', function() {
+gulp.task('db_drop_journal_table', function() {
   var sqlString = "drop table journal_entry;";
   function cb(res) {
     console.log(res);

@@ -1,4 +1,4 @@
-create database cats_fansite;
+create database memory_data;
 
 create table user_accounts (
 	id int not null auto_increment,
@@ -13,8 +13,14 @@ create table journal_entry (
 	id int not null auto_increment,
 	timestamp DATETIME,
 	comments text not null,
+	user_id int references user_accounts(id),
 	primary key (id)
 	);
+
+
+grant all privileges on memory_data.* to 'ru55ell'@'localhost';
+flush privileges;
+
 
 -- create table cats (
 -- 	id int not null auto_increment,
@@ -24,4 +30,4 @@ create table journal_entry (
 -- 	);
 
 
-user ru55ell
+-- user ru55ell

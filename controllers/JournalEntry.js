@@ -1,21 +1,28 @@
 var express = require('express');
 var ctrl = express.Router();
-var JournalEntry = require('../models/journal_table');
+var Entry = require('../models/journal_table');
+var JorunalEntry = require('../models/journal_table');
+
+
 
 /* GET home page. */
 ctrl.get('/', function(req, res, next) {
   res.render('index', { title: 'Memorease' });
 });
 
+
+
+ctrl.post('/journalentry', createEntry);
+
 ctrl.get('/create', create);
-ctrl.get('/form', renderForm);
 ctrl.get('/id/:id', findById);
 ctrl.get('/all', findAll);
 
+ctrl.get('/entry', renderEntry);
 
 
-function renderForm(req, res, next){
-  res.render('form', {});
+function renderEntry(req, res, next){
+  res.render('entry', {});
 };
 
 
@@ -27,6 +34,22 @@ function create(req, res, next) {
     res.json(result);
     //res.render('template', result.attributes);
   });
+};
+
+function createEntry(req, res, next) {
+  var entry = new Entry({
+    comments: req.body.comments,
+    user_id: req.session.id
+  }).save().then(function(result) {
+    //res.render
+    console.log(result.attributes)
+    res.render('entry', result.attributes); //{{comments}}
+    //res.render()
+    // res.redirect('/entry');
+
+    //req.session
+  });
+
 };
 
 function findById(req, res, next) {

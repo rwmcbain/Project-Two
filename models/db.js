@@ -5,7 +5,7 @@ var db = require('knex')({	//# knex
 		host: 'localhost',
 		user: 'ru55ell',
 		password: 'pooty',
-		database: 'cats_fansite'
+		database: 'memory_data'
 	}
 });
 
