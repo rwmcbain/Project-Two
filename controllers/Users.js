@@ -5,6 +5,13 @@ var Account = require('../models/user_table');
 var bcrypt = require('bcryptjs');
 var Entry = require('../models/journal_table');
 
+var session = require('express-session');
+
+ctrl.use(session({
+   secret: 'secret',
+   resave: true,
+   saveUninitialized: true
+}));
 
 
 
@@ -24,7 +31,8 @@ ctrl.get('/all', findAll);
 ctrl.get('/entry', renderEntry);
 
 function renderEntry(req, res, next){
-  res.render('entry', {});
+  res.render('entry', {})
+  console.log(req.session.email)
 };
 
 /* form submission */
@@ -88,6 +96,9 @@ function attemptToRegister(req, res, next) {
     last_name: req.body.lastnamesignup
   }).save().then(function(result) {
     //res.render
+    req.session.account = account;
+    console.log(req.session.account)
+    req.session.save();
     console.log(result)
     //res.json(result);
     //res.render()
@@ -131,11 +142,11 @@ function attemptToLogin(req, res, next) {
   // who is our user?
   Account.where('email', req.body.email).fetch().then(
     function(result) {
-      // we now have our user: result
-      // next, we need their password! (to compare it)
-      // bcrypt.compareSync(password, hash); // returns true/false
-      // console.log(result);
-      // model attributes on results are sometimes stored on results.attributes
+      if(result === null){
+        res.redirect('/');
+      }
+      else {
+
       var attempt = comparePasswordHashes(req.body.password, result.attributes.password_hash);
       if (attempt) {
           res.redirect('/entry');
@@ -143,10 +154,7 @@ function attemptToLogin(req, res, next) {
       } else {
         res.json('Login in failed');
       }
-      // then we share the results
-      // res.redirect('/entry');
-      // res.json({'is_logged_in': attempt });
-    }
+    }}
   )
 };
 
