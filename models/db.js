@@ -9,4 +9,10 @@ var db = require('knex')({	//# knex
 	}
 });
 
-module.exports = db;
+var Bookshelf = require('bookshelf')(db)
+
+Bookshelf.plugin('registry')
+
+
+
+module.exports = Bookshelf;

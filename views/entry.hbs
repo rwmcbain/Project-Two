@@ -1,41 +1,31 @@
+<a id="gohomeid" href ="/">
+     <input class='prettybuttons3'type="button" id="logout" value="Log Out"/> 
+</a>
+<br>
   <div class="col s12 m7">
-    <h2 class="header">Journal Entry</h2>
-
+    <h2 class="header"></h2>
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-               <form action="/entry" id="form" method="post">
-                    <input name='comments' id='articleid' />
-                    <button type='submit' id="submitbutton" value='Submit' />Submit</button> 
-
-               </form>
+          <form action="/entry" id="form" method="post">
+               <input name='comments' id='articleid' placeholder="What's on your mind?" />
+               <button class="prettybuttons2" type='submit' id="submitbutton" value='Submit' />Submit</button> 
+          </form>
           <div id="submitdiv">
           <div class="card-action">
-
           </div>
-          </div>
-          </div>
+         </div>
+       </div>
      </div>
-     </div>
-     </div>
-{{!-- 
- {{#if result.comments}} 
- <div class="card horizontal">
-      <div class="card-stacked">
-        <div class="card-content">
-      {{result.comments}}
-      </div>
-      </div>
-      </div>
-
-{{/if}} --}}
+   </div>
+</div>
 
 {{#each collection}}
 <div class="card horizontal">
       <div class="card-stacked">
-        <div class="card-content"> 
-    {{!--  <li>-  --}}{{this}}{{!-- </li> --}}
-     </div>
+          <div class="card-content"> 
+               {{this}}
+          </div>
       </div>
-      </div>
+</div>
 {{/each}}

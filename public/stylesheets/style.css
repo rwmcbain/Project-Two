@@ -4,8 +4,16 @@ body {
   background-color: white;
   text-align: center; }
 
+h2 {
+  font-family: 'Raleway', sans-serif;
+  background-color: white;
+  text-align: center; }
+
 a {
   color: #00B7FF; }
+
+#logout {
+  z-index: 2; }
 
 #comment {
   border-radius: 3px;
@@ -30,15 +38,53 @@ a {
   float: center; }
 
 .prettybuttons {
-  background-color: #F5F5F5;
-  border-color: #F5F5F5;
+  background-color: #03A9F4;
+  border-color: #03A9F4;
+  color: white;
   height: 60px;
   width: 100px; }
 
 .prettybuttons1 {
-  background-color: #F5F5F5;
-  border-color: #F5F5F5;
+  background-color: #03A9F4;
+  border-color: #03A9F4;
+  color: white;
   height: 60px;
-  width: 230px; }
+  width: 230px;
+  font-weight: bold; }
+
+.prettybuttons2 {
+  background-color: #03A9F4;
+  border-color: #03A9F4;
+  color: white;
+  font-size: 18px;
+  height: 40px;
+  width: 50px; }
+
+.prettybuttons3 {
+  background-color: #ef5350;
+  border-color: #f44336;
+  color: white;
+  font-size: 18px;
+  height: 40px;
+  width: 100px;
+  float: right; }
+
+.prettybuttons3:hover {
+  background-color: #03A9F4;
+  border-color: #03A9F4; }
+
+.prettybuttons2:hover {
+  background-color: #ef5350;
+  border-color: #f44336; }
+
+.prettybuttons:hover {
+  background-color: #ef5350;
+  border-color: #f44336;
+  font-size: 15px; }
+
+.prettybuttons1:hover {
+  font-size: 15px;
+  background-color: #ef5350;
+  border-color: #f44336; }
 
 /*# sourceMappingURL=style.css.map */

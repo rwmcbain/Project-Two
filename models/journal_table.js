@@ -1,14 +1,13 @@
-var db = require('./db'); 
-var bookshelf = require('bookshelf')(db);
-var UserTable = require('./user_table');
+var Bookshelf = require('./db'); 
+// var bookshelf = require('bookshelf')(db);
+require('./user_table');
 
-var JournalEntry = bookshelf.Model.extend({
-	tableName: 'journal_entry',
-	idAttribute: 'id',
+var Journal = Bookshelf.Model.extend({
+	tableName: 'journal_entrys',
 	user: function() {
-    	return this.belongsTo(UserTable, 'user_id');
+    	return this.belongsTo('User');
   	}
 });
 
 
-module.exports = JournalEntry;
+module.exports = Bookshelf.model('Journal', Journal);

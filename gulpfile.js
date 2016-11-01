@@ -23,7 +23,7 @@ gulp.task('default', ['compile-sass', 'watch'])
 
 
 gulp.task('db_create_user_table', function() {
-  var sqlString = "create table user_accounts (" +
+  var sqlString = "create table users (" +
   "id int not null auto_increment, " +
   "first_name varchar(20) not null, " +
   "last_name varchar(30) not null, " +
@@ -38,7 +38,7 @@ gulp.task('db_create_user_table', function() {
 });
   
 gulp.task('db_create_journal_table', function() {
-  var sqlString = "create table journal_entry (" +
+  var sqlString = "create table journal_entrys (" +
   "id int not null auto_increment, " +
   // "timestamp DATETIME, " +
   "comments text not null, " +
@@ -51,22 +51,9 @@ gulp.task('db_create_journal_table', function() {
   db.raw(sqlString).then(cb);
 });
 
-// gulp.task('db_create_cats', function() {
-//   var sqlString = "create table cats (" +
-//   "id int not null auto_increment, " +
-//   "name varchar(255) not null, " +
-//   "comments text not null, " +
-//   "primary key (id) " +
-//   ");";
-//     function cb(res) {
-//     console.log(res);
-//   }
-//   db.raw(sqlString).then(cb);
-// });
 
-
-gulp.task('db_drop_user_accounts', function() {
-  var sqlString = "drop table user_accounts;";
+gulp.task('db_drop_user_table', function() {
+  var sqlString = "drop table users;";
   function cb(res) {
     console.log(res);
   }
@@ -74,7 +61,7 @@ gulp.task('db_drop_user_accounts', function() {
 });
 
 gulp.task('db_drop_journal_table', function() {
-  var sqlString = "drop table journal_entry;";
+  var sqlString = "drop table journal_entrys;";
   function cb(res) {
     console.log(res);
   }

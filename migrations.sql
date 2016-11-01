@@ -1,6 +1,6 @@
 create database memory_data;
 
-create table user_accounts (
+create table users (
 	id int not null auto_increment,
 	email varchar(255) not null,
 	first_name varchar (30) not null,
@@ -9,11 +9,11 @@ create table user_accounts (
 	primary key (id)
 	);
 
-create table journal_entry (
+create table journal_entrys (
 	id int not null auto_increment,
-	-- timestamp DATETIME,
 	comments text not null,
-	user_id int references user_accounts(id),
+	-- date DATETIME,
+	user_id int not null references users(id),
 	primary key (id)
 	);
 
@@ -21,13 +21,6 @@ create table journal_entry (
 grant all privileges on memory_data.* to 'ru55ell'@'localhost';
 flush privileges;
 
-
--- create table cats (
--- 	id int not null auto_increment,
--- 	name varchar(100) not null,
--- 	comments text,
--- 	primary key (id)
--- 	);
 
 
 -- user ru55ell

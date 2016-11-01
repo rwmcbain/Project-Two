@@ -1,17 +1,16 @@
-var db = require('./db'); 
-var bookshelf = require('bookshelf')(db);
-var bcrypt = require('bcryptjs');
+var Bookshelf = require('./db'); 
+// var bookshelf = require('bookshelf')(db);
+// var bcrypt = require('bcryptjs');
 
-var JournalTable = require('./journal_table');
+require('./journal_table');
 
-var UserAccount = bookshelf.Model.extend({
-	tableName: 'user_accounts',
-
+var User = Bookshelf.Model.extend({
+	tableName: 'users',
 	journals: function() {
-		return this.hasMany(JournalTable);
+		return this.hasMany('Journal');
 	}
 
 });
 
 
-module.exports = UserAccount;
+module.exports = Bookshelf.model('User', User);
