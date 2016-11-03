@@ -25,7 +25,17 @@ ctrl.get('/entry', renderEntry);
 
 
 function renderEntry(req, res, next){
-  res.render('entry', {});
+   JournalEntry.collection().fetch().then(function(list) {
+      var viewModel = {
+        collection: []
+      }
+      list.forEach(function(model) {
+        if (model.attributes['user_id'] == req.session.user_id) {
+          viewModel.collection.unshift(model.attributes['comments']);
+        }
+      })
+      res.render('entry', viewModel); 
+    });
 };
 
 function create(req, res, next) {
@@ -36,8 +46,8 @@ function create(req, res, next) {
 };
 
 function createEntry(req, res, next) {
-  JournalEntry.where({id: 1}).fetch({withRelated: ['user']}).then(function(user){
-  })
+  // JournalEntry.where({id: 1}).fetch({withRelated: ['user']}).then(function(user){
+  // })
   var entry = new JournalEntry({
     comments: req.body.comments,
     user_id: req.session.user_id

@@ -1,5 +1,6 @@
+
 body {
-  padding: 50px;
+  padding: 10px;
   font-family: 'Raleway', sans-serif;
   background-color: white;
   text-align: center;
@@ -10,9 +11,30 @@ h2 {
   text-align: center;
 }
 
+h1 {
+  text-shadow: 0.5px 0.5px 0.5px #000;
+  font-family: 'Poiret One', cursive;
+}
+
 a {
   color: #00B7FF;
 }
+form {
+  padding: 10px;
+}
+
+#back-ground {
+  background: white;
+  background: -moz-linear-gradient(top,  white 0%, #ECEFF1 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white), color-stop(100%,#ECEFF1));
+  background: -webkit-linear-gradient(top,  white 0%,#ECEFF1 100%);
+  background: -o-linear-gradient(top,  white 0%,#ECEFF1 100%);
+  background: -ms-linear-gradient(top,  white 0%,#ECEFF1 100%);
+  background: linear-gradient(to bottom,  white 0%,#ECEFF1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='white', endColorstr='#ECEFF1',GradientType=0 );
+  background-attachment: fixed;
+} 
+
 
 #logout {
   z-index: 2;
@@ -39,6 +61,7 @@ a {
   color: black;
   float: right;
 }
+
 #gohomeid {
   color: black;
   float: center;
@@ -48,8 +71,12 @@ a {
   background-color: #03A9F4;
   border-color: #03A9F4;
   color: white;
+  font-weight: bold;
   height: 60px;
   width: 100px;
+  border-radius: 4px;
+  text-shadow: 0.5px 0.5px 0.5px #000;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .prettybuttons1 {
@@ -57,51 +84,168 @@ a {
   border-color: #03A9F4;
   color: white;
   height: 60px;
-  width: 230px;
+  width: 250px;
   font-weight: bold;
+  border-radius: 3px;
+  text-shadow: 0.5px 0.5px 0.5px #000;
+  font-family: 'Montserrat', sans-serif;
 }
+
 .prettybuttons2 {
   background-color: #03A9F4;
   border-color: #03A9F4;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
   height: 40px;
   width: 50px;
+  border-radius: 3px;
+  text-shadow: 0.5px 0.5px 0.5px #000;
+  font-family: 'Montserrat', sans-serif;
 }
+
 .prettybuttons3 {
   background-color: #ef5350;
   border-color: #f44336;
   color: white;
   font-size: 18px;
+  font-weight: bold;
   height: 40px;
   width: 100px;
   float: right;
+  border-radius: 3px;
+  text-shadow: 0.5px 0.5px 0.5px #000;
 }
+
 .prettybuttons3:hover {
   background-color: #03A9F4;
-    border-color: #03A9F4;
-
+  border-color: #03A9F4;
+  color: white;
 }
+
 .prettybuttons2:hover {
-  // background-color: #29B6F6;
-  // border-color: #4FC3F7;
-   background-color: #ef5350;
+  background-color: #ef5350;
   border-color: #f44336;
 }
 
 .prettybuttons:hover {
-  // background-color: #29B6F6;
-  // border-color: #4FC3F7;
-   background-color: #ef5350;
+  background-color: #ef5350;
   border-color: #f44336;
-  font-size: 15px;
-  
 }
 
 .prettybuttons1:hover {
-  // background-color: #29B6F6;
-  // border-color: #4FC3F7;
-  font-size: 15px;
-   background-color: #ef5350;
+  background-color: #ef5350;
   border-color: #f44336;
+
+
+
+@-ms-viewport{
+  width: device-width;
+}
+//   @media only screen 
+//   and (min-device-width: 320px) 
+//   and (max-device-width: 480px)
+//   and (-webkit-min-device-pixel-ratio: 2) {
+
+// }
+
+// /* Portrait */
+// @media only screen 
+//   and (min-device-width: 320px) 
+//   and (max-device-width: 480px)
+//   and (-webkit-min-device-pixel-ratio: 2)
+//   and (orientation: portrait) {
+// }
+
+// /* Landscape */
+// @media only screen 
+//   and (min-device-width: 320px) 
+//   and (max-device-width: 480px)
+//   and (-webkit-min-device-pixel-ratio: 2)
+//   and (orientation: landscape) {
+
+// }
+
+// ----------- iPhone 5 and 5S -----------
+
+// /* Portrait and Landscape */
+// @media only screen 
+//   and (min-device-width: 320px) 
+//   and (max-device-width: 568px)
+//   and (-webkit-min-device-pixel-ratio: 2) {
+
+// }
+
+// /* Portrait */
+// @media only screen 
+//   and (min-device-width: 320px) 
+//   and (max-device-width: 568px)
+//   and (-webkit-min-device-pixel-ratio: 2)
+//   and (orientation: portrait) {
+// }
+
+// /* Landscape */
+// @media only screen 
+//   and (min-device-width: 320px) 
+//   and (max-device-width: 568px)
+//   and (-webkit-min-device-pixel-ratio: 2)
+//   and (orientation: landscape) {
+
+// }
+
+/* ----------- iPhone 6 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+
+}
+
+/* ----------- iPhone 6+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+}
 }

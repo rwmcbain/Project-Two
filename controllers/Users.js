@@ -89,8 +89,7 @@ function attemptToLogin(req, res, next) {
         res.json('Login in failed');
       }
     }
-  }
-  )
+  })
 };
 
 module.exports = ctrl;
